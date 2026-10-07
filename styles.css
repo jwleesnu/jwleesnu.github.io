@@ -1,0 +1,391 @@
+/* ==========================================================================
+   Jaewoo Lee — personal homepage
+   Design: "Quiet Serif — Interactive" (approved 2026-10-08)
+   Every value below mirrors the approved Design artboard
+   (design-source/QuietInteractive.dc.html). Change tokens, not components.
+   ========================================================================== */
+
+:root {
+  /* ground + ink */
+  --bg: #FCFCFA;
+  --ink: #1B1B1A;
+  --ink-soft: #3A3A38;
+  --muted: #5E5E5A;       /* 6.3:1 on --bg */
+  --faint: #8A8A85;       /* placeholders only (e.g. "arXiv [TBD]") */
+  --rule: #E4E4DF;
+  --rule-soft: #EEEEE9;
+  --dot: #B5B5B0;
+
+  /* single accent: links + publication group labels */
+  --accent: #27548A;      /* 7.6:1 on --bg */
+  --accent-dark: #1B3B63;
+  --accent-underline: #B9C6D8;
+
+  /* award pill — the only warm color on the page */
+  --award-bg: #F6F0DC;
+  --award-border: #E6D9AE;
+  --award-ink: #6B5212;   /* 6.5:1 on --award-bg */
+  --award-icon: #8A6A14;
+
+  /* type */
+  --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --sans: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* layout */
+  --measure: 760px;
+  --section-gap: 64px;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background: var(--bg); }
+
+body {
+  margin: 0;
+  padding: 36px 32px 96px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--accent-underline);
+}
+a:hover { color: var(--accent-dark); text-decoration-color: var(--accent-dark); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+strong { font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   Page column
+   -------------------------------------------------------------------------- */
+.page {
+  width: 100%;
+  max-width: var(--measure);
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+}
+
+/* small uppercase sans label used throughout */
+.label {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.label--accent { color: var(--accent); }
+.label--block { margin-bottom: 6px; }
+
+/* dashed placeholder for facts still to be filled in */
+.tbd { color: var(--faint); border-bottom: 1px dashed var(--dot); }
+
+/* --------------------------------------------------------------------------
+   Top bar — only the Expand/Collapse-all control
+   -------------------------------------------------------------------------- */
+.topbar { display: flex; justify-content: flex-end; align-items: center; }
+
+.expand-all {
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  padding: 0;
+  min-height: 44px;          /* touch target */
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+.expand-all:hover { color: var(--accent); }
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 56px;
+  align-items: flex-start;
+}
+.hero-text {
+  flex: 1 1 400px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.name {
+  margin: 0;
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+.name-ko {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.position { margin: 6px 0 0; font-size: 21px; line-height: 1.45; text-wrap: pretty; }
+.lab { margin: 0; font-size: 18px; line-height: 1.5; color: var(--muted); }
+.statement { margin: 6px 0 0; font-size: 19px; line-height: 1.6; text-wrap: pretty; }
+
+.interests { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.interest-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.45;
+}
+/* separator trails each item (except the last) so a wrapped line never starts with a dot */
+.interest-list li:not(:last-child)::after {
+  content: "·";
+  color: var(--dot);
+  font-style: normal;
+  margin-left: 12px;
+}
+
+.links {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  font-family: var(--sans);
+  font-size: 14px;
+}
+
+.latest {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  margin-top: 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+}
+.latest .date { font-family: var(--sans); font-size: 13px; letter-spacing: 0.04em; color: var(--muted); }
+.latest-text { font-size: 17px; line-height: 1.5; }
+
+.portrait {
+  width: 208px;
+  height: 266px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--rule);
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Accordion sections
+   -------------------------------------------------------------------------- */
+.sections { display: flex; flex-direction: column; border-bottom: 1px solid var(--rule); }
+.section { display: flex; flex-direction: column; }
+.section-heading, .item-heading { margin: 0; font: inherit; }
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  padding: 22px 0;
+  border: 0;
+  border-top: 1px solid var(--rule);
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.toggle-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 16px;
+  min-width: 0;
+}
+.toggle-label { font-size: 26px; font-weight: 500; line-height: 1.2; transition: color 160ms ease; }
+.toggle:hover .toggle-label { color: var(--accent); }
+.toggle-hint { font-family: var(--sans); font-size: 13px; letter-spacing: 0.02em; color: var(--muted); }
+
+.toggle-icon {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  color: var(--ink);
+  transition: transform 240ms ease;
+}
+.toggle-icon line { stroke: currentColor; stroke-width: 1.5; }
+.toggle[aria-expanded="true"] .toggle-icon { transform: rotate(45deg); }   /* + becomes × */
+
+/* panel: animates height via grid rows, fades the body, and removes closed
+   content from the tab order with a delayed visibility flip */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 320ms var(--ease-out);
+}
+.panel.is-open { grid-template-rows: 1fr; }
+.panel-clip { overflow: hidden; min-height: 0; visibility: hidden; transition: visibility 0s linear 320ms; }
+.panel.is-open > .panel-clip { visibility: visible; transition-delay: 0s; }
+.panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 4px 0 36px;
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+.panel.is-open > .panel-clip > .panel-body { opacity: 1; }
+
+.body-text { margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty; }
+
+/* News */
+.panel-body--news { gap: 14px; list-style: none; margin: 0; }
+.news li {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 16px;
+  font-size: 18px;
+  line-height: 1.55;
+}
+.news .date { font-family: var(--sans); font-size: 13px; letter-spacing: 0.04em; color: var(--muted); padding-top: 6px; }
+
+/* Research */
+.panel-body--research { gap: 28px; }
+.highlights { display: flex; flex-direction: column; border-bottom: 1px solid var(--rule-soft); }
+.item { display: flex; flex-direction: column; }
+
+.toggle--item { gap: 16px; padding: 14px 0; border-top: 1px solid var(--rule-soft); }
+.toggle--item .toggle-label { font-size: 21px; line-height: 1.3; }
+.item-meta { display: flex; align-items: center; gap: 14px; flex: 0 0 auto; }
+.item-tag { font-family: var(--sans); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.toggle--item .toggle-icon { width: 16px; height: 16px; color: var(--muted); }
+
+.panel-body--item {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+  align-items: flex-start;
+  padding: 6px 0 26px;
+}
+.thumb {
+  flex: 0 0 240px;
+  width: 240px;
+  height: 120px;             /* all thumbnails are 2:1 */
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--rule);
+  display: block;
+}
+.item-text { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.item-text p { margin: 0; font-size: 17px; line-height: 1.6; color: var(--ink-soft); text-wrap: pretty; }
+.item-links, .pub-links { display: flex; flex-wrap: wrap; gap: 16px; font-family: var(--sans); font-size: 13px; }
+
+.ongoing { display: flex; flex-direction: column; gap: 12px; }
+.ongoing ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; font-size: 18px; line-height: 1.5; }
+
+/* Publications */
+.panel-body--pubs { gap: 26px; }
+.pub-note { margin: 0; font-family: var(--sans); font-size: 13px; color: var(--muted); }
+.pub-group { display: flex; flex-direction: column; gap: 14px; }
+.pub-group--multi { gap: 22px; }
+.pub { display: flex; flex-direction: column; gap: 6px; }
+.pub h4 { margin: 0; font-size: 20px; font-weight: 500; line-height: 1.35; text-wrap: pretty; }
+.pub .authors { margin: 0; font-size: 16px; line-height: 1.5; }
+.pub .venue { margin: 0; font-size: 16px; line-height: 1.5; color: var(--muted); }
+.pub .title-ko { margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted); }
+
+.award {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 6px 12px 6px 10px;
+  border-radius: 999px;
+  background: var(--award-bg);
+  border: 1px solid var(--award-border);
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--award-ink);
+}
+.award svg { width: 14px; height: 14px; fill: none; stroke: var(--award-icon); stroke-width: 1.6; stroke-linejoin: round; }
+
+/* Education */
+.panel-body--edu { gap: 18px; }
+.edu { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; }
+.edu-main { flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 2px; font-size: 18px; line-height: 1.5; }
+.edu-school { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+.edu-logo { width: 26px; height: 27px; flex: 0 0 auto; display: block; }
+.edu-advisor { color: var(--muted); }
+.edu-dates { font-family: var(--sans); font-size: 13px; letter-spacing: 0.04em; color: var(--muted); padding-top: 6px; }
+
+/* --------------------------------------------------------------------------
+   Footer / contact (always visible — nothing to toggle)
+   -------------------------------------------------------------------------- */
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px 24px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+.contact .email { font-size: 20px; }
+.contact .address { font-family: var(--sans); font-size: 13px; letter-spacing: 0.02em; color: var(--muted); text-wrap: pretty; }
+
+/* --------------------------------------------------------------------------
+   Small screens — not part of the approved artboard; conservative defaults
+   -------------------------------------------------------------------------- */
+@media (max-width: 520px) {
+  body { padding: 24px 20px 72px; }
+  .page { gap: 48px; }
+  .name { font-size: 48px; }
+  .position { font-size: 19px; }
+  .toggle-label { font-size: 23px; }
+  .news li { grid-template-columns: 72px minmax(0, 1fr); gap: 12px; }
+  .portrait { width: 160px; height: 205px; }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .panel, .panel-body, .panel-clip, .toggle-icon, .toggle-label, .expand-all { transition: none; }
+}
