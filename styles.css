@@ -267,8 +267,8 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
    Accordion sections
    -------------------------------------------------------------------------- */
 .sections { display: flex; flex-direction: column; border-bottom: 1px solid var(--rule); }
-.section, .item { display: flex; flex-direction: column; scroll-margin-top: calc(var(--bar-h) + 12px); }
-.section-heading, .item-heading { margin: 0; font: inherit; }
+.section { display: flex; flex-direction: column; scroll-margin-top: calc(var(--bar-h) + 12px); }
+.section-heading { margin: 0; font: inherit; }
 
 .toggle {
   display: flex;
@@ -301,7 +301,7 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
   transition: color 160ms ease;
 }
 .toggle:hover .toggle-label { color: var(--accent); }
-.toggle-hint { font-family: var(--mono); font-size: 12px; letter-spacing: 0.01em; color: var(--muted); }
+.toggle-hint, .section-hint { font-family: var(--mono); font-size: 12px; letter-spacing: 0.01em; color: var(--muted); }
 
 .toggle-icon {
   flex: 0 0 auto;
@@ -349,32 +349,28 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
 }
 .news .date { font-family: var(--mono); font-size: 12.5px; color: var(--muted); padding-top: 3px; }
 
-/* Research */
-.panel-body--research { gap: 30px; }
-.highlights { display: flex; flex-direction: column; border-bottom: 1px solid var(--rule-soft); }
-
-.toggle--item { gap: 16px; padding: 15px 0; border-top: 1px solid var(--rule-soft); }
-.toggle--item .toggle-label { font-size: 19.5px; line-height: 1.3; letter-spacing: -0.005em; }
-.item-meta { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
-.item-tag {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--muted);
-  background: var(--chip);
-  border-radius: 999px;
-  padding: 3px 9px;
-}
-.toggle--item .toggle-icon { width: 16px; height: 16px; }
-
-.panel-body--item {
-  flex-direction: row;
+/* Research & Publications — always open, first block under the hero */
+.section-head {
+  display: flex;
   flex-wrap: wrap;
-  gap: 18px 28px;
+  align-items: baseline;
+  gap: 4px 14px;
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+}
+.section-title { margin: 0; font-family: var(--serif); font-size: 25px; font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; }
+.research-body { display: flex; flex-direction: column; gap: 34px; padding: 2px 0 40px; scroll-margin-top: calc(var(--bar-h) + 12px); }
+.pub-note { margin: 0; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.pub-group { display: flex; flex-direction: column; gap: 28px; }
+.pub-group > .label { margin-bottom: -10px; }   /* sit closer to the first paper of the group */
+
+/* one paper: thumbnail beside title / authors / venue / award / description / links */
+.pub {
+  display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
-  padding: 4px 0 26px;
+  gap: 16px 28px;
+  scroll-margin-top: calc(var(--bar-h) + 12px);
 }
 .thumb {
   flex: 0 0 256px;
@@ -387,12 +383,17 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
   background: var(--surface);
   display: block;
 }
-.item-text { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
-.item-text p { margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink-soft); text-wrap: pretty; }
+.pub-text { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.pub h4 { margin: 0; font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1.35; letter-spacing: -0.005em; text-wrap: pretty; }
+.pub .authors { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+.pub .authors strong { color: var(--ink); }
+.pub .venue { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+.pub .title-ko { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); word-break: keep-all; }   /* wrap Korean between words, not inside them */
+.pub-desc { margin: 4px 0 0; font-size: 15px; line-height: 1.7; color: var(--ink-soft); text-wrap: pretty; }
 
-/* link chips (research items + publications) */
-.item-links, .pub-links { display: flex; flex-wrap: wrap; gap: 8px; }
-.item-links a, .pub-links a, .item-links .tbd, .pub-links .tbd {
+/* link chips */
+.pub-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.pub-links a, .pub-links .tbd {
   font-size: 12.5px;
   font-weight: 500;
   line-height: 1;
@@ -402,8 +403,8 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
   background: var(--surface);
   text-decoration: none;
 }
-.item-links a:hover, .pub-links a:hover { color: var(--accent-dark); border-color: var(--accent-underline); background: var(--accent-tint); }
-.item-links .tbd, .pub-links .tbd { border: 1px dashed var(--dot); background: transparent; }
+.pub-links a:hover { color: var(--accent-dark); border-color: var(--accent-underline); background: var(--accent-tint); }
+.pub-links .tbd { border: 1px dashed var(--dot); background: transparent; }
 
 .ongoing { display: flex; flex-direction: column; gap: 12px; }
 .ongoing ul {
@@ -428,19 +429,6 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
   border-radius: 1px;
   background: var(--accent);
 }
-
-/* Publications */
-.panel-body--pubs { gap: 28px; }
-.pub-note { margin: 0; font-family: var(--mono); font-size: 12px; color: var(--muted); }
-.pub-group { display: flex; flex-direction: column; gap: 14px; }
-.pub-group--multi { gap: 24px; }
-.pub { display: flex; flex-direction: column; gap: 6px; }
-.pub h4 { margin: 0; font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1.35; letter-spacing: -0.005em; text-wrap: pretty; }
-.pub .authors { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
-.pub .authors strong { color: var(--ink); }
-.pub .venue { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--muted); }
-.pub .title-ko { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); }
-.pub-links { margin-top: 4px; }
 
 .award {
   display: inline-flex;
@@ -507,8 +495,7 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
   .statement { font-size: 21px; }
   .interest-list { gap: 6px; }
   .interest-list li { font-size: 13px; padding: 4px 9px; border-radius: 7px; }
-  .toggle-label { font-size: 22px; }
-  .toggle--item .toggle-label { font-size: 18px; }
+  .toggle-label, .section-title { font-size: 22px; }
   .news li { grid-template-columns: 64px minmax(0, 1fr); gap: 12px; }
   .thumb { flex-basis: 100%; width: 100%; height: auto; aspect-ratio: 2 / 1; }
 }

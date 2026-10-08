@@ -1,8 +1,9 @@
 /* Accordion behaviour for the homepage.
    - Every .toggle button controls the panel named in aria-controls.
-   - Section toggles (About, News, …) and nested item toggles (Research highlights)
+   - Section toggles (About, News, Education) and any nested .toggle--item toggles
      share the same mechanism; "Expand all" only drives the section toggles.
-   - Arriving with a hash (index.html#publications) opens that section.
+     Research & Publications is always open and has no toggle.
+   - Arriving with a hash (index.html#news) opens that section.
    No dependencies, no build step. */
 (function () {
   'use strict';
