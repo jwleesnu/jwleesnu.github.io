@@ -1,16 +1,15 @@
 /* Accordion behaviour for the homepage.
-   - Every .toggle button controls the panel named in aria-controls.
-   - Section toggles (About, News, Education) and any nested .toggle--item toggles
-     share the same mechanism; "Expand all" only drives the section toggles.
-     Research & Publications is always open and has no toggle.
-   - Arriving with a hash (index.html#news) opens that section.
+   - Every .toggle button controls the panel named in aria-controls: the About and
+     Education section toggles, and the "Summary" chip on each paper.
+   - News and Research & Publications are always open and have no toggle.
+   - "Expand all" opens every toggle; once everything is open it reads
+     "Collapse all" and closes them all again.
+   - Arriving with a hash (index.html#about, #fly-by-code) opens that panel.
    No dependencies, no build step. */
 (function () {
   'use strict';
 
   var toggles = Array.prototype.slice.call(document.querySelectorAll('.toggle'));
-  var sectionToggles = toggles.filter(function (b) { return !b.classList.contains('toggle--item'); });
-  var itemToggles = toggles.filter(function (b) { return b.classList.contains('toggle--item'); });
   var expandAll = document.getElementById('expand-all');
 
   function panelOf(button) {
@@ -24,12 +23,12 @@
     var panel = panelOf(button);
     if (panel) { panel.classList.toggle('is-open', open); }
   }
-  function allSectionsOpen() {
-    return sectionToggles.every(isOpen);
+  function allOpen() {
+    return toggles.every(isOpen);
   }
   function syncExpandAll() {
     if (!expandAll) { return; }
-    var all = allSectionsOpen();
+    var all = allOpen();
     expandAll.textContent = all ? 'Collapse all' : 'Expand all';
     expandAll.setAttribute('aria-pressed', all ? 'true' : 'false');
   }
@@ -43,15 +42,16 @@
 
   if (expandAll) {
     expandAll.addEventListener('click', function () {
-      var all = allSectionsOpen();
-      sectionToggles.forEach(function (b) { setOpen(b, !all); });
-      if (all) { itemToggles.forEach(function (b) { setOpen(b, false); }); }
+      var all = allOpen();
+      toggles.forEach(function (b) { setOpen(b, !all); });
       syncExpandAll();
     });
   }
 
-  // Deep links: #about, #publications, #fly-by-code … open the matching panel
-  // (and its parent section) so a shared link lands on visible content.
+  // Deep links: #about, #education, #fly-by-code … open the panel that belongs to
+  // the target (and to any section around it) so a shared link lands on visible
+  // content. Only a block's own toggle counts: a paper's Summary chip belongs to
+  // the paper, not to the Research & Publications section that contains it.
   function openTarget(id) {
     var target = id && document.getElementById(id);
     if (!target) { return; }
@@ -59,7 +59,7 @@
     while (node && node !== document.body) {
       if (node.classList && (node.classList.contains('section') || node.classList.contains('item'))) {
         var b = node.querySelector('.toggle');
-        if (b && !isOpen(b)) { setOpen(b, true); }
+        if (b && b.closest('.section, .item') === node && !isOpen(b)) { setOpen(b, true); }
       }
       node = node.parentNode;
     }

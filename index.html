@@ -18,15 +18,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<noscript><style>.panel{grid-template-rows:1fr}.panel-body{opacity:1}.panel-clip{visibility:visible}.expand-all{display:none}</style></noscript>
+<noscript><style>.panel{grid-template-rows:1fr}.panel-body{opacity:1}.panel-clip{visibility:visible}.expand-all,.toggle--chip{display:none}</style></noscript>
 </head>
 <body>
 <div class="topbar">
   <nav class="topbar-inner" aria-label="Sections">
     <ul class="topnav">
-      <li><a href="#research">Research &amp; Publications</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#news">News</a></li>
+      <li><a href="#research">Research &amp; Publications</a></li>
       <li><a href="#education">Education</a></li>
     </ul>
     <button type="button" class="expand-all" id="expand-all" aria-pressed="false">Expand all</button>
@@ -73,77 +73,6 @@
 
   <div class="sections">
 
-    <section class="section section--open" id="research" aria-labelledby="research-title">
-      <div class="section-head">
-        <h2 class="section-title" id="research-title">Research &amp; Publications</h2>
-        <span class="section-hint">4 papers · 3 ongoing</span>
-      </div>
-      <div class="research-body" id="publications">
-        <p class="pub-note">* equal contribution · † corresponding author</p>
-
-        <div class="pub-group">
-          <h3 class="label label--accent">Conference</h3>
-          <article class="pub" id="tiltrotor-control">
-            <img class="thumb" src="assets/fig-tiltrotor.jpg" alt="Omnidirectional tiltrotor holding its setpoint after a sudden cable-induced disturbance (ICRA 2026 experiment)" width="256" height="128" loading="lazy">
-            <div class="pub-text">
-              <h4>Geometric Backstepping Control of Omnidirectional Tiltrotors Incorporating Servo–Rotor Dynamics for Robustness against Sudden Disturbances</h4>
-              <p class="authors"><strong>Jaewoo Lee*</strong>, Dongjae Lee*, Jinwoo Lee, Hyungyu Lee, Yeonjoon Kim, H. Jin Kim†</p>
-              <p class="venue"><em>IEEE International Conference on Robotics and Automation (ICRA)</em>, 2026, pp. 18307–18314</p>
-              <p class="pub-desc">A geometric backstepping controller that explicitly models servo and rotor actuator dynamics, enabling omnidirectional tiltrotors to stay robust against sudden external disturbances.</p>
-              <div class="pub-links"><a href="https://doi.org/10.1109/ICRA57385.2026.11696810">Paper</a></div>
-            </div>
-          </article>
-        </div>
-
-        <div class="pub-group">
-          <h3 class="label label--accent">Preprints / Under review</h3>
-          <article class="pub" id="fly-by-code">
-            <img class="thumb" src="assets/fig-flybycode.jpg" alt="Fly-by-Code: real-world four-step tool pick-and-place sequence flown by an aerial manipulator" width="256" height="128" loading="lazy">
-            <div class="pub-text">
-              <h4>Fly-by-Code: Embodied Coding Agents for Aerial Manipulation with Active Visual and Physical Feedback</h4>
-              <p class="authors"><strong>Jaewoo Lee*</strong>, Jeongyeon Seo*, Sihyun Cho*, Gyeongrak Choe, Yutong Wang, Bavin Saravanan, Jia-Bin Huang, Furong Huang, Sebastian Scherer, Guanya Shi, H. Jin Kim, Seungjae Lee†, Dongjae Lee†</p>
-              <p class="venue"><em>arXiv preprint</em>, 2026</p>
-              <p class="pub-desc">Embodied coding agents often fail on aerial manipulators because limited onboard sensing hides task outcomes and fragile physical interaction obscures why a program failed. We introduce <em>Active Feedback</em>, where the agent writes diagnostic programs that run in simulation to look from informative viewpoints (<em>View</em>) or test failure hypotheses through targeted interaction (<em>Probe</em>). Across six simulated tasks, this raises task success from 31.7% to 75%, and the refined programs run on a real aerial manipulator without source-code changes.</p>
-              <div class="pub-links"><a href="https://fly-by-code.github.io/">Project Page</a><span class="tbd">arXiv [TBD]</span></div>
-            </div>
-          </article>
-          <article class="pub" id="cooperative-transport">
-            <img class="thumb" src="assets/fig-transport.jpg" alt="Two porter robots cooperatively transporting a hospital bed through a cluttered test environment" width="256" height="128" loading="lazy">
-            <div class="pub-text">
-              <h4>Kinematic-Slip-Aware Multi-Robot Cooperative Transportation of a Large Object in Complex Environments</h4>
-              <p class="authors">Yongjun You*, Seungwoo Jung*, Sungil Son*, Jinwoo Lee*, <strong>Jaewoo Lee*</strong>, H. Jin Kim, Youngseok Jang†</p>
-              <p class="venue"><em>Under review at IEEE Transactions on Automation Science and Engineering (T-ASE)</em></p>
-              <p class="pub-desc">A kinematic-slip-aware path-planning framework that lets multiple nonholonomic robots carry a large object through cluttered environments while maintaining rigid formation.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="pub-group">
-          <h3 class="label label--accent">Domestic conference</h3>
-          <article class="pub" id="push-and-slide">
-            <img class="thumb" src="assets/fig-pushslide.png" alt="Simulation of a hexarotor pressing its end-effector against a curved surface, with the onboard depth image and the live superquadric fit" width="256" height="128" loading="lazy">
-            <div class="pub-text">
-              <h4>Surface-Modeling-Based Hybrid Control Framework for Drone-Based Contact Tasks on Arbitrarily Shaped Surfaces</h4>
-              <p class="title-ko" lang="ko">임의의 곡면에서 드론을 이용한 접촉 작업을 위한 표면 모델링 기반 하이브리드 제어 프레임워크</p>
-              <p class="authors"><strong>Jaewoo Lee</strong>, Jeonghyun Byun, H. Jin Kim†</p>
-              <p class="venue"><em>ICROS Annual Conference</em>, Daegu, Korea, 2026</p>
-              <div class="award"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="7.5" r="5"></circle><path d="M6.5 11.5 L5 18 L10 15.5 L15 18 L13.5 11.5"></path></svg><span>1st Place · MathWorks Award, ICROS 2026</span></div>
-              <p class="pub-desc">A perception-and-control pipeline that fits a superquadric model to an onboard point cloud, extracts contact normals and sliding trajectories in closed form, and tracks them with a hybrid motion/force controller combining a switching disturbance observer and RISE-based force control.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="ongoing">
-          <h3 class="label">Ongoing</h3>
-          <ul>
-            <li>Aerial push-and-slide on arbitrarily shaped surfaces</li>
-            <li>Aerial manipulation with a dexterous hand</li>
-            <li>Human intention estimation for human-robot cooperation</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="about">
       <h2 class="section-heading">
         <button type="button" class="toggle" aria-expanded="false" aria-controls="about-panel">
@@ -161,19 +90,110 @@
       </div>
     </section>
 
-    <section class="section" id="news">
-      <h2 class="section-heading">
-        <button type="button" class="toggle" aria-expanded="false" aria-controls="news-panel">
-          <span class="toggle-text"><span class="toggle-label">News</span><span class="toggle-hint">3 updates · 2026</span></span>
-          <svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg>
-        </button>
-      </h2>
-      <div class="panel" id="news-panel">
-        <div class="panel-clip">
-          <ul class="panel-body panel-body--news news">
-            <li><span class="date">2026.10</span><span><em>Fly-by-Code</em> is out on arXiv! <a href="https://fly-by-code.github.io/">Project Page</a> · <span class="tbd">arXiv [link TBD]</span></span></li>
-            <li><span class="date">2026.07</span><span>Presented our work on aerial push-and-slide on arbitrarily shaped surfaces at ICROS 2026, Daegu.</span></li>
-            <li><span class="date">2026.06</span><span>Presented our paper on geometric backstepping control of omnidirectional tiltrotors at ICRA 2026, Vienna.</span></li>
+    <section class="section section--open" id="news" aria-labelledby="news-title">
+      <div class="section-head">
+        <h2 class="section-title" id="news-title">News</h2>
+        <span class="section-hint">3 updates · 2026</span>
+      </div>
+      <ul class="news">
+        <li><span class="date">2026.10</span><span><em>Fly-by-Code</em> is out on arXiv! <a href="https://fly-by-code.github.io/">Project Page</a> · <span class="tbd">arXiv [link TBD]</span></span></li>
+        <li><span class="date">2026.07</span><span>Presented our work on aerial push-and-slide on arbitrarily shaped surfaces at ICROS 2026, Daegu.</span></li>
+        <li><span class="date">2026.06</span><span>Presented our paper on geometric backstepping control of omnidirectional tiltrotors at ICRA 2026, Vienna.</span></li>
+      </ul>
+    </section>
+
+    <section class="section section--open" id="research" aria-labelledby="research-title">
+      <div class="section-head">
+        <h2 class="section-title" id="research-title">Research &amp; Publications</h2>
+        <span class="section-hint">4 papers · 3 ongoing</span>
+      </div>
+      <div class="research-body" id="publications">
+        <p class="pub-note">* equal contribution · † corresponding author</p>
+
+        <div class="pub-group">
+          <h3 class="label label--accent">Conference</h3>
+          <article class="pub item" id="tiltrotor-control">
+            <img class="thumb" src="assets/fig-tiltrotor.jpg" alt="Omnidirectional tiltrotor holding its setpoint after a sudden cable-induced disturbance (ICRA 2026 experiment)" width="256" height="128" loading="lazy">
+            <div class="pub-text">
+              <h4>Geometric Backstepping Control of Omnidirectional Tiltrotors Incorporating Servo–Rotor Dynamics for Robustness against Sudden Disturbances</h4>
+              <p class="authors"><strong>Jaewoo Lee*</strong>, Dongjae Lee*, Jinwoo Lee, Hyungyu Lee, Yeonjoon Kim, H. Jin Kim†</p>
+              <p class="venue"><em>IEEE International Conference on Robotics and Automation (ICRA)</em>, 2026, pp. 18307–18314</p>
+              <div class="pub-links"><a href="https://doi.org/10.1109/ICRA57385.2026.11696810">Paper</a><button type="button" class="toggle toggle--chip" aria-expanded="false" aria-controls="tiltrotor-control-summary">Summary<svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg></button></div>
+              <div class="panel" id="tiltrotor-control-summary">
+                <div class="panel-clip">
+                  <div class="panel-body panel-body--summary">
+                    <p class="pub-desc">A geometric backstepping controller that explicitly models servo and rotor actuator dynamics, enabling omnidirectional tiltrotors to stay robust against sudden external disturbances.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="pub-group">
+          <h3 class="label label--accent">Preprints / Under review</h3>
+          <article class="pub item" id="fly-by-code">
+            <img class="thumb" src="assets/fig-flybycode.jpg" alt="Fly-by-Code: real-world four-step tool pick-and-place sequence flown by an aerial manipulator" width="256" height="128" loading="lazy">
+            <div class="pub-text">
+              <h4>Fly-by-Code: Embodied Coding Agents for Aerial Manipulation with Active Visual and Physical Feedback</h4>
+              <p class="authors"><strong>Jaewoo Lee*</strong>, Jeongyeon Seo*, Sihyun Cho*, Gyeongrak Choe, Yutong Wang, Bavin Saravanan, Jia-Bin Huang, Furong Huang, Sebastian Scherer, Guanya Shi, H. Jin Kim, Seungjae Lee†, Dongjae Lee†</p>
+              <p class="venue"><em>arXiv preprint</em>, 2026</p>
+              <div class="pub-links"><a href="https://fly-by-code.github.io/">Project Page</a><span class="tbd">arXiv [TBD]</span><button type="button" class="toggle toggle--chip" aria-expanded="false" aria-controls="fly-by-code-summary">Summary<svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg></button></div>
+              <div class="panel" id="fly-by-code-summary">
+                <div class="panel-clip">
+                  <div class="panel-body panel-body--summary">
+                    <p class="pub-desc">Embodied coding agents often fail on aerial manipulators because limited onboard sensing hides task outcomes and fragile physical interaction obscures why a program failed. We introduce <em>Active Feedback</em>, where the agent writes diagnostic programs that run in simulation to look from informative viewpoints (<em>View</em>) or test failure hypotheses through targeted interaction (<em>Probe</em>). Across six simulated tasks, this raises task success from 31.7% to 75%, and the refined programs run on a real aerial manipulator without source-code changes.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="pub item" id="cooperative-transport">
+            <img class="thumb" src="assets/fig-transport.jpg" alt="Two porter robots cooperatively transporting a hospital bed through a cluttered test environment" width="256" height="128" loading="lazy">
+            <div class="pub-text">
+              <h4>Kinematic-Slip-Aware Multi-Robot Cooperative Transportation of a Large Object in Complex Environments</h4>
+              <p class="authors">Yongjun You*, Seungwoo Jung*, Sungil Son*, Jinwoo Lee*, <strong>Jaewoo Lee*</strong>, H. Jin Kim, Youngseok Jang†</p>
+              <p class="venue"><em>Under review at IEEE Transactions on Automation Science and Engineering (T-ASE)</em></p>
+              <div class="pub-links"><button type="button" class="toggle toggle--chip" aria-expanded="false" aria-controls="cooperative-transport-summary">Summary<svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg></button></div>
+              <div class="panel" id="cooperative-transport-summary">
+                <div class="panel-clip">
+                  <div class="panel-body panel-body--summary">
+                    <p class="pub-desc">A kinematic-slip-aware path-planning framework that lets multiple nonholonomic robots carry a large object through cluttered environments while maintaining rigid formation.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="pub-group">
+          <h3 class="label label--accent">Domestic conference</h3>
+          <article class="pub item" id="push-and-slide">
+            <img class="thumb" src="assets/fig-pushslide.png" alt="Simulation of a hexarotor pressing its end-effector against a curved surface, with the onboard depth image and the live superquadric fit" width="256" height="128" loading="lazy">
+            <div class="pub-text">
+              <h4>Surface-Modeling-Based Hybrid Control Framework for Drone-Based Contact Tasks on Arbitrarily Shaped Surfaces</h4>
+              <p class="title-ko" lang="ko">임의의 곡면에서 드론을 이용한 접촉 작업을 위한 표면 모델링 기반 하이브리드 제어 프레임워크</p>
+              <p class="authors"><strong>Jaewoo Lee</strong>, Jeonghyun Byun, H. Jin Kim†</p>
+              <p class="venue"><em>ICROS Annual Conference</em>, Daegu, Korea, 2026</p>
+              <div class="award"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="7.5" r="5"></circle><path d="M6.5 11.5 L5 18 L10 15.5 L15 18 L13.5 11.5"></path></svg><span>1st Place · MathWorks Award, ICROS 2026</span></div>
+              <div class="pub-links"><button type="button" class="toggle toggle--chip" aria-expanded="false" aria-controls="push-and-slide-summary">Summary<svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg></button></div>
+              <div class="panel" id="push-and-slide-summary">
+                <div class="panel-clip">
+                  <div class="panel-body panel-body--summary">
+                    <p class="pub-desc">A perception-and-control pipeline that fits a superquadric model to an onboard point cloud, extracts contact normals and sliding trajectories in closed form, and tracks them with a hybrid motion/force controller combining a switching disturbance observer and RISE-based force control.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="ongoing">
+          <h3 class="label">Ongoing</h3>
+          <ul>
+            <li>Aerial push-and-slide on arbitrarily shaped surfaces</li>
+            <li>Aerial manipulation with a dexterous hand</li>
+            <li>Human intention estimation for human-robot cooperation</li>
           </ul>
         </div>
       </div>

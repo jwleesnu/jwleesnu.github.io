@@ -314,6 +314,25 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
 .toggle:hover .toggle-icon { color: var(--accent); }
 .toggle[aria-expanded="true"] .toggle-icon { transform: rotate(180deg); }   /* chevron flips up */
 
+/* "Summary" chip on each paper: same shape as the link chips next to it */
+.toggle--chip {
+  width: auto;
+  gap: 5px;
+  padding: 7px 9px 7px 11px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--ink-soft);
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+.toggle--chip .toggle-icon { width: 12px; height: 12px; color: currentColor; }
+.toggle--chip:hover { color: var(--accent-dark); border-color: var(--accent-underline); background: var(--accent-tint); }
+.toggle--chip:hover .toggle-icon { color: currentColor; }
+.toggle--chip[aria-expanded="true"] { color: var(--accent); border-color: var(--accent-underline); }
+
 /* panel: animates height via grid rows, fades the body, and removes closed
    content from the tab order with a delayed visibility flip */
 .panel {
@@ -338,7 +357,7 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
 .body-text { margin: 0; max-width: 68ch; font-size: 16.5px; line-height: 1.75; color: var(--ink-soft); text-wrap: pretty; }
 
 /* News */
-.panel-body--news { gap: 12px; list-style: none; margin: 0; }
+.news { list-style: none; margin: 0; padding: 2px 0 36px; display: flex; flex-direction: column; gap: 12px; }
 .news li {
   display: grid;
   grid-template-columns: 76px minmax(0, 1fr);
@@ -349,7 +368,7 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
 }
 .news .date { font-family: var(--mono); font-size: 12.5px; color: var(--muted); padding-top: 3px; }
 
-/* Research & Publications — always open, first block under the hero */
+/* News + Research & Publications — always open (no toggle) */
 .section-head {
   display: flex;
   flex-wrap: wrap;
@@ -362,9 +381,9 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
 .research-body { display: flex; flex-direction: column; gap: 34px; padding: 2px 0 40px; scroll-margin-top: calc(var(--bar-h) + 12px); }
 .pub-note { margin: 0; font-family: var(--mono); font-size: 12px; color: var(--muted); }
 .pub-group { display: flex; flex-direction: column; gap: 28px; }
-.pub-group > .label { margin-bottom: -10px; }   /* sit closer to the first paper of the group */
+.pub-group > .label { margin-bottom: -8px; }   /* sit closer to the first paper of the group */
 
-/* one paper: thumbnail beside title / authors / venue / award / description / links */
+/* one paper: thumbnail beside title / (Korean title) / authors / venue / (award) / chips; the description lives in the Summary panel */
 .pub {
   display: flex;
   flex-wrap: wrap;
@@ -389,10 +408,12 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
 .pub .authors strong { color: var(--ink); }
 .pub .venue { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--muted); }
 .pub .title-ko { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); word-break: keep-all; }   /* wrap Korean between words, not inside them */
-.pub-desc { margin: 4px 0 0; font-size: 15px; line-height: 1.7; color: var(--ink-soft); text-wrap: pretty; }
+
+.panel-body--summary { padding: 12px 0 2px; }
+.pub-desc { margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink-soft); text-wrap: pretty; }
 
 /* link chips */
-.pub-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.pub-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 6px; }
 .pub-links a, .pub-links .tbd {
   font-size: 12.5px;
   font-weight: 500;
@@ -497,7 +518,7 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
   .interest-list li { font-size: 13px; padding: 4px 9px; border-radius: 7px; }
   .toggle-label, .section-title { font-size: 22px; }
   .news li { grid-template-columns: 64px minmax(0, 1fr); gap: 12px; }
-  .thumb { flex-basis: 100%; width: 100%; height: auto; aspect-ratio: 2 / 1; }
+  .thumb { flex-basis: 100%; width: 100%; height: auto; aspect-ratio: 2 / 1; }   /* full width above the paper text */
 }
 
 /* --------------------------------------------------------------------------
