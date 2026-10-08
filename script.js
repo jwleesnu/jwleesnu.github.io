@@ -51,10 +51,8 @@
 
   // Deep links: #about, #publications, #fly-by-code … open the matching panel
   // (and its parent section) so a shared link lands on visible content.
-  function openFromHash() {
-    var id = window.location.hash.replace(/^#/, '');
-    if (!id) { return; }
-    var target = document.getElementById(id);
+  function openTarget(id) {
+    var target = id && document.getElementById(id);
     if (!target) { return; }
     var node = target;
     while (node && node !== document.body) {
@@ -66,6 +64,17 @@
     }
     syncExpandAll();
   }
+  function openFromHash() {
+    openTarget(window.location.hash.replace(/^#/, ''));
+  }
+
+  // In-page links (the top bar) open their section even when the hash is
+  // already the same and no hashchange fires.
+  Array.prototype.forEach.call(document.querySelectorAll('a[href^="#"]'), function (a) {
+    a.addEventListener('click', function () {
+      openTarget(a.getAttribute('href').slice(1));
+    });
+  });
 
   window.addEventListener('hashchange', openFromHash);
   openFromHash();

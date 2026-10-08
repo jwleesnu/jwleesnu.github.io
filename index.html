@@ -16,47 +16,60 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <noscript><style>.panel{grid-template-rows:1fr}.panel-body{opacity:1}.panel-clip{visibility:visible}.expand-all{display:none}</style></noscript>
 </head>
 <body>
-<div class="page" id="top">
-
-  <nav class="topbar" aria-label="Page controls">
+<div class="topbar">
+  <nav class="topbar-inner" aria-label="Sections">
+    <ul class="topnav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
     <button type="button" class="expand-all" id="expand-all" aria-pressed="false">Expand all</button>
   </nav>
+</div>
+
+<div class="page" id="top">
 
   <header class="hero">
-    <div class="hero-text">
-      <h1 class="name">Jaewoo Lee</h1>
-      <p class="name-ko" lang="ko">이재우</p>
-      <p class="position">Ph.D. Student<br><span class="phrase">Aerospace Engineering,</span> <span class="phrase">Seoul National University</span></p>
-      <p class="lab"><a href="http://larr.snu.ac.kr">Lab for Autonomous Robotics Research (LARR)</a></p>
-      <p class="statement">My research centers on <strong>aerial manipulation</strong>: giving flying robots the ability to physically interact with their surroundings.</p>
-      <div class="interests">
-        <h2 class="label">Research interests</h2>
-        <ul class="interest-list">
-          <li>Autonomous Aerial Manipulation</li>
-          <li>Aerial Robotics</li>
-          <li>Language-Guided Robot Autonomy</li>
-          <li>Aerial Physical Interaction</li>
-          <li>Multi-Robot Cooperation</li>
-          <li>Human-Robot Collaboration</li>
-        </ul>
+    <div class="hero-id">
+      <div class="hero-text">
+        <div class="name-row">
+          <h1 class="name">Jaewoo Lee</h1>
+          <p class="name-ko" lang="ko">이재우</p>
+        </div>
+        <p class="position">Ph.D. Student<br><span class="phrase">Aerospace Engineering,</span> <span class="phrase">Seoul National University</span></p>
+        <p class="lab"><a href="http://larr.snu.ac.kr">Lab for Autonomous Robotics Research (LARR)</a></p>
       </div>
-      <ul class="links">
-        <li><a href="https://scholar.google.com/citations?user=dcqUgi0AAAAJ">Google Scholar</a></li>
-        <li><a href="https://github.com/jwleesnu">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/jaewoo-lee-b20224261/">LinkedIn</a></li>
-      </ul>
-      <div class="latest">
-        <span class="label">Latest</span>
-        <span class="date">2026.10</span>
-        <span class="latest-text"><em>Fly-by-Code</em> is out on arXiv · <a href="https://fly-by-code.github.io/">Project Page</a></span>
-      </div>
+      <img class="portrait" src="assets/profile.jpg" alt="Portrait of Jaewoo Lee" width="208" height="266">
     </div>
-    <img class="portrait" src="assets/profile.jpg" alt="Portrait of Jaewoo Lee" width="208" height="266">
+    <p class="statement">My research centers on <strong>aerial manipulation</strong>: giving flying robots the ability to physically interact with their surroundings.</p>
+    <div class="interests">
+      <h2 class="label">Research interests</h2>
+      <ul class="interest-list">
+        <li>Autonomous Aerial Manipulation</li>
+        <li>Aerial Robotics</li>
+        <li>Language-Guided Robot Autonomy</li>
+        <li>Aerial Physical Interaction</li>
+        <li>Multi-Robot Cooperation</li>
+        <li>Human-Robot Collaboration</li>
+      </ul>
+    </div>
+    <ul class="links">
+      <li><a href="https://scholar.google.com/citations?user=dcqUgi0AAAAJ">Google Scholar</a></li>
+      <li><a href="https://github.com/jwleesnu">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/jaewoo-lee-b20224261/">LinkedIn</a></li>
+    </ul>
+    <div class="latest">
+      <span class="label">Latest</span>
+      <span class="date">2026.10</span>
+      <span class="latest-text"><em>Fly-by-Code</em> is out on arXiv · <a href="https://fly-by-code.github.io/">Project Page</a></span>
+    </div>
   </header>
 
   <div class="sections">
@@ -65,7 +78,7 @@
       <h2 class="section-heading">
         <button type="button" class="toggle" aria-expanded="false" aria-controls="about-panel">
           <span class="toggle-text"><span class="toggle-label">About</span><span class="toggle-hint">Bio · Advisor · Approach</span></span>
-          <svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><line x1="10" y1="3" x2="10" y2="17"></line><line x1="3" y1="10" x2="17" y2="10"></line></svg>
+          <svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg>
         </button>
       </h2>
       <div class="panel" id="about-panel">
@@ -82,7 +95,7 @@
       <h2 class="section-heading">
         <button type="button" class="toggle" aria-expanded="false" aria-controls="news-panel">
           <span class="toggle-text"><span class="toggle-label">News</span><span class="toggle-hint">3 updates · 2026</span></span>
-          <svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><line x1="10" y1="3" x2="10" y2="17"></line><line x1="3" y1="10" x2="17" y2="10"></line></svg>
+          <svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg>
         </button>
       </h2>
       <div class="panel" id="news-panel">
@@ -100,7 +113,7 @@
       <h2 class="section-heading">
         <button type="button" class="toggle" aria-expanded="false" aria-controls="research-panel">
           <span class="toggle-text"><span class="toggle-label">Research</span><span class="toggle-hint">4 highlights · 3 ongoing</span></span>
-          <svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><line x1="10" y1="3" x2="10" y2="17"></line><line x1="3" y1="10" x2="17" y2="10"></line></svg>
+          <svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg>
         </button>
       </h2>
       <div class="panel" id="research-panel">
@@ -114,7 +127,7 @@
                 <h4 class="item-heading">
                   <button type="button" class="toggle toggle--item" aria-expanded="false" aria-controls="r1-panel">
                     <span class="toggle-label">Fly-by-Code</span>
-                    <span class="item-meta"><span class="item-tag">arXiv 2026</span><svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><line x1="10" y1="3" x2="10" y2="17"></line><line x1="3" y1="10" x2="17" y2="10"></line></svg></span>
+                    <span class="item-meta"><span class="item-tag">arXiv 2026</span><svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg></span>
                   </button>
                 </h4>
                 <div class="panel" id="r1-panel">
@@ -134,7 +147,7 @@
                 <h4 class="item-heading">
                   <button type="button" class="toggle toggle--item" aria-expanded="false" aria-controls="r2-panel">
                     <span class="toggle-label">Robust Control of Omnidirectional Tiltrotors</span>
-                    <span class="item-meta"><span class="item-tag">ICRA 2026</span><svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><line x1="10" y1="3" x2="10" y2="17"></line><line x1="3" y1="10" x2="17" y2="10"></line></svg></span>
+                    <span class="item-meta"><span class="item-tag">ICRA 2026</span><svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg></span>
                   </button>
                 </h4>
                 <div class="panel" id="r2-panel">
@@ -154,7 +167,7 @@
                 <h4 class="item-heading">
                   <button type="button" class="toggle toggle--item" aria-expanded="false" aria-controls="r3-panel">
                     <span class="toggle-label">Aerial Push-and-Slide on Unknown Surfaces</span>
-                    <span class="item-meta"><span class="item-tag">ICROS 2026</span><svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><line x1="10" y1="3" x2="10" y2="17"></line><line x1="3" y1="10" x2="17" y2="10"></line></svg></span>
+                    <span class="item-meta"><span class="item-tag">ICROS 2026</span><svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg></span>
                   </button>
                 </h4>
                 <div class="panel" id="r3-panel">
@@ -173,7 +186,7 @@
                 <h4 class="item-heading">
                   <button type="button" class="toggle toggle--item" aria-expanded="false" aria-controls="r4-panel">
                     <span class="toggle-label">Multi-Robot Cooperative Transportation</span>
-                    <span class="item-meta"><span class="item-tag">T-ASE · under review</span><svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><line x1="10" y1="3" x2="10" y2="17"></line><line x1="3" y1="10" x2="17" y2="10"></line></svg></span>
+                    <span class="item-meta"><span class="item-tag">T-ASE · under review</span><svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg></span>
                   </button>
                 </h4>
                 <div class="panel" id="r4-panel">
@@ -207,7 +220,7 @@
       <h2 class="section-heading">
         <button type="button" class="toggle" aria-expanded="false" aria-controls="publications-panel">
           <span class="toggle-text"><span class="toggle-label">Publications</span><span class="toggle-hint">4 papers</span></span>
-          <svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><line x1="10" y1="3" x2="10" y2="17"></line><line x1="3" y1="10" x2="17" y2="10"></line></svg>
+          <svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg>
         </button>
       </h2>
       <div class="panel" id="publications-panel">
@@ -260,7 +273,7 @@
       <h2 class="section-heading">
         <button type="button" class="toggle" aria-expanded="false" aria-controls="education-panel">
           <span class="toggle-text"><span class="toggle-label">Education</span><span class="toggle-hint">Seoul National University · 2019 – present</span></span>
-          <svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><line x1="10" y1="3" x2="10" y2="17"></line><line x1="3" y1="10" x2="17" y2="10"></line></svg>
+          <svg class="toggle-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 7.75 10 12.25l4.5-4.5"></path></svg>
         </button>
       </h2>
       <div class="panel" id="education-panel">
