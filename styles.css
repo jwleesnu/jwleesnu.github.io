@@ -407,7 +407,6 @@ em { font-family: var(--serif); font-style: italic; font-size: 1.06em; letter-sp
 .pub .authors { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
 .pub .authors strong { color: var(--ink); }
 .pub .venue { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--muted); }
-.pub .title-ko { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); word-break: keep-all; }   /* wrap Korean between words, not inside them */
 
 .panel-body--summary { padding: 12px 0 2px; }
 .pub-desc { margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink-soft); text-wrap: pretty; }
