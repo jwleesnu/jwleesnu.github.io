@@ -123,3 +123,41 @@
   .publication-actions a { gap: 6px; }
   .summary-toggle { gap: 7px; }
 }
+
+/* Keep key headings on one line, with intentional research-statement breaks. */
+#name { white-space: nowrap; }
+.statement > span { display: block; }
+.statement-focus { margin: .1em 0 .4em; }
+.about-section .about-copy { margin-top: 26px; }
+.section-heading { gap: 16px; }
+.section-number { font-size: 18px; line-height: 1.2; }
+.nav-number { font-size: 12px; }
+.section-hint { margin-left: 38px; }
+.education-list { margin-left: 38px; }
+.research-heading { flex-wrap: wrap; align-items: center; }
+.research-heading .section-heading { align-items: baseline; min-width: 0; }
+.research-heading .section-number { margin-top: 0; }
+.research-heading h2 { white-space: nowrap; }
+@media (max-width: 760px) {
+  .section-number { font-size: 16px; }
+  .section-heading { gap: 12px; }
+  .section-hint { margin-left: 32px; }
+  .education-list { margin-left: 32px; }
+  .research-heading h2 {
+    font-size: clamp(20px, 5.5vw, 37px);
+    letter-spacing: -.8px;
+  }
+  .about-section .about-copy { margin-top: 22px; }
+}
+@media (max-width: 520px) {
+  #name {
+    font-size: clamp(26px, 8.3vw, 42px);
+    max-width: none;
+    letter-spacing: -1.2px;
+  }
+  .statement-focus {
+    font-size: clamp(16px, 5.15vw, 20px);
+    white-space: nowrap;
+  }
+  .education-list { margin-left: 0; }
+}
