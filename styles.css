@@ -89,3 +89,14 @@
   .research-meta { gap: 12px; }
   .research-meta p { font-size: 10px; }
 }
+
+/* Match the university text's typeface, with bold emphasis for labels. */
+.eyebrow, .hero-copy > .eyebrow, .portrait-block figcaption,
+.latest-label, .pub-category, .footer-label,
+.section-hint, .pub-note, .research-meta p, .tbd,
+.date, .edu-dates, .nav-number, .interest-number,
+.section-number, .pub-index {
+  font-family: var(--sans);
+  font-weight: 700;
+  letter-spacing: 0;
+}
