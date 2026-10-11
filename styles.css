@@ -126,8 +126,13 @@
 
 /* Keep key headings on one line, with intentional research-statement breaks. */
 #name { white-space: nowrap; }
-.statement > span { display: block; }
-.statement-focus { margin: .1em 0 .4em; }
+.statement { white-space: nowrap; }
+.statement > span { display: inline; }
+.statement > .statement-detail {
+  display: block;
+  margin-top: .4em;
+  white-space: normal;
+}
 .about-section .about-copy { margin-top: 26px; }
 .section-heading { gap: 16px; }
 .section-number { font-size: 18px; line-height: 1.2; }
@@ -138,7 +143,14 @@
 .research-heading .section-heading { align-items: baseline; min-width: 0; }
 .research-heading .section-number { margin-top: 0; }
 .research-heading h2 { white-space: nowrap; }
+@media (min-width: 761px) and (max-width: 1050px) {
+  .statement { font-size: clamp(17px, 2.3vw, 20px); }
+}
 @media (max-width: 760px) {
+  .statement { white-space: normal; }
+  .statement > span { display: block; }
+  .statement-focus { margin: .1em 0 .4em; }
+  .statement > .statement-detail { margin-top: 0; }
   .section-number { font-size: 16px; }
   .section-heading { gap: 12px; }
   .section-hint { margin-left: 32px; }
