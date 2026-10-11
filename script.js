@@ -1,17 +1,29 @@
 (() => {
-  const summaries = [...document.querySelectorAll('.paper-summary')];
+  const toggles = [...document.querySelectorAll('.summary-toggle')];
   const expandButton = document.querySelector('#expand-all');
+  function setSummary(toggle, open) {
+    toggle.setAttribute('aria-expanded', String(open));
+    document.getElementById(toggle.getAttribute('aria-controls')).hidden = !open;
+  }
   function syncButton() {
-    const allOpen = summaries.every(detail => detail.open);
+    const allOpen = toggles.every(toggle => toggle.getAttribute('aria-expanded') === 'true');
     expandButton.setAttribute('aria-expanded', String(allOpen));
     expandButton.innerHTML = `${allOpen ? 'Collapse' : 'Expand'} all summaries<span aria-hidden="true">${allOpen ? '−' : '+'}</span>`;
   }
+  toggles.forEach(toggle => {
+    setSummary(toggle, false);
+    toggle.hidden = false;
+    toggle.addEventListener('click', () => {
+      setSummary(toggle, toggle.getAttribute('aria-expanded') !== 'true');
+      syncButton();
+    });
+  });
   expandButton.addEventListener('click', () => {
-    const shouldOpen = !summaries.every(detail => detail.open);
-    summaries.forEach(detail => { detail.open = shouldOpen; });
+    const shouldOpen = !toggles.every(toggle => toggle.getAttribute('aria-expanded') === 'true');
+    toggles.forEach(toggle => setSummary(toggle, shouldOpen));
     syncButton();
   });
-  summaries.forEach(detail => detail.addEventListener('toggle', syncButton));
+  syncButton();
   const links = [...document.querySelectorAll('nav a')];
   const sections = links.map(link => document.querySelector(link.getAttribute('href')));
   let scheduled = false;
