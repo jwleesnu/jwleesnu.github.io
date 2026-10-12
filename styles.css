@@ -242,3 +242,16 @@
 @media (max-width: 760px) and (hover: hover) {
   .about-section .section-heading:hover { color: var(--blue); }
 }
+
+/* Site/brand icons in front of external links (they replace the ↗ arrows).
+   Inline, single-colour SVG: Simple Icons (CC0) for Google Scholar, GitHub,
+   LinkedIn, arXiv and X; Lucide (ISC) globe for project pages and document
+   for papers. */
+.link-icon { width: 1.25em; height: 1.25em; flex-shrink: 0; fill: currentColor; stroke: none; }
+.link-icon--line { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.social-links a { gap: .5em; transition: color .2s; }
+.social-links .link-icon { color: var(--blue); }
+.social-links a:hover { color: var(--blue); }
+.publication-actions a { gap: .45em; }
+.publication-actions .link-icon { width: 1.2em; height: 1.2em; }
+.latest-text .link-icon { width: 1.15em; height: 1.15em; vertical-align: -.22em; margin-right: .35em; }
