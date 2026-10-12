@@ -255,3 +255,12 @@
 .publication-actions a { gap: .45em; }
 .publication-actions .link-icon { width: 1.2em; height: 1.2em; }
 .latest-text .link-icon { width: 1.15em; height: 1.15em; vertical-align: -.22em; margin-right: .35em; }
+
+/* Larger section links in the top bar, on every screen size. Below 400px the
+   size follows the viewport so all four links stay on one row (320px fits). */
+nav a { font-size: 14px; }
+@media (max-width: 760px) { nav a { font-size: 13px; } }
+@media (max-width: 520px) {
+  nav a { font-size: clamp(10.5px, 3.4vw, 13px); }
+  nav a[href='#research'] { line-height: inherit; }  /* same baseline as the other links */
+}
