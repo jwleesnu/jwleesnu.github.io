@@ -24,6 +24,28 @@
     syncButton();
   });
   syncButton();
+  // About folds behind its heading while it stacks above News (same breakpoint as the CSS).
+  const aboutToggle = document.querySelector('.about-toggle');
+  const aboutCopy = document.getElementById('about-copy');
+  const stacked = window.matchMedia('(max-width: 760px)');
+  let aboutOpen = location.hash === '#about';
+  function syncAbout() {
+    aboutToggle.hidden = !stacked.matches;
+    aboutToggle.setAttribute('aria-expanded', String(aboutOpen));
+    aboutCopy.hidden = stacked.matches && !aboutOpen;
+  }
+  function openAbout() {
+    aboutOpen = true;
+    syncAbout();
+  }
+  aboutToggle.addEventListener('click', () => {
+    aboutOpen = !aboutOpen;
+    syncAbout();
+  });
+  document.querySelectorAll('a[href="#about"]').forEach(link => link.addEventListener('click', openAbout));
+  window.addEventListener('hashchange', () => { if (location.hash === '#about') openAbout(); });
+  stacked.addEventListener('change', syncAbout);
+  syncAbout();
   const links = [...document.querySelectorAll('nav a')];
   const sections = links.map(link => document.querySelector(link.getAttribute('href')));
   let scheduled = false;

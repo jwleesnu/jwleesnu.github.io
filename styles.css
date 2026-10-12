@@ -211,3 +211,34 @@
   .statement { grid-row: 4; margin-top: 16px; }
   .social-links { grid-row: 5; margin-top: 12px; }
 }
+
+/* On narrow screens About stacks above News, so its text folds behind the
+   heading; script.js reveals the toggle only while (max-width: 760px) matches. */
+.about-toggle { display: none; }
+.about-copy[hidden] { display: none; }
+@media (max-width: 760px) {
+  .about-section .section-heading { position: relative; }
+  .about-toggle:not([hidden]) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin-left: auto;
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+  }
+  /* the whole heading row is the tap target */
+  .about-toggle::after { content: ''; position: absolute; inset: 0; }
+  .about-toggle .plus { width: 13px; height: 13px; }
+  .about-toggle .plus:before { width: 13px; top: 6px; }
+  .about-toggle .plus:after { height: 13px; left: 6px; }
+  .about-toggle[aria-expanded="true"] .plus:after { transform: rotate(90deg); }
+}
+/* hover tint only where a pointer can hover, so it doesn't stick after a tap */
+@media (max-width: 760px) and (hover: hover) {
+  .about-section .section-heading:hover { color: var(--blue); }
+}
